@@ -8,7 +8,7 @@ import pandas as pd
 import json
 
 # 'mysql://username:password@localhost/db_name'
-with open("home/Amanneo/neo/flasksite/static/config.json") as c:
+with open("home/Amanneo/neo/flasksite/config.json") as c:
     params = json.load(c)["params"]
 local_server = True
 app = Flask(__name__)
