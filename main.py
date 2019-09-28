@@ -30,17 +30,47 @@ class Contact(db.Model):
     message = db.Column(db.String(100), nullable=False)
 """
 
-@app.route("/")
+@app.route("/",methods=['GET','POST'])
 def home():
+    if (request.method == "POST"):
+            cname = request.form.get('name')
+            cemail = request.form.get('email')
+            csub = request.form.get('subject')
+            cmes = request.form.get('message')
+            with open(path+"contact.csv", mode='a') as file_:
+                file_.write("{},{},{},{}".format(cname, cemail,csub,cmes))
+                file_.write("\n")
+
     return render_template('index.html', params=params)
 
 @app.route('/test')
 def chartTest():
-  df = pd.read_csv(path+dataset[1])
-  df.price.plot()
+      df = pd.read_csv(path+dataset[1])
+      df.price.plot()
+      plt.savefig(image+"plot1.png")
+      return render_template('plot.html', url ="/static/img/plot1.png")
 
-  plt.savefig(image+"plot1.png")
-  return render_template('plot.html', url ="/static/img/plot1.png")
+@app.route('/dashboard',methods=['GET','POST'] )
+def dashboard():
+    if ('user' in session and session['user'] == params['admin_user']):
+        return render_template('dashboard.html', params=params)
+    if request.method == 'POST':
+        passs = request.form.get('password')
+        uname = request.form.get('username')
+        if (uname == params['admin_user'] and passs == params['admin_pass']):
+            session['user'] = uname
+            return render_template('dashboard.html', params=params)
+        else:
+            return render_template('login.html', params=params)
+    return render_template('login.html', params=params)
+
+@app.route("/logout")
+def logout():
+    session.pop('user')
+    return redirect('/dashboard')
+
+
+
 
 app.run(debug = True)
 

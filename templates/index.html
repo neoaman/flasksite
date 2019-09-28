@@ -258,19 +258,19 @@
 			<div class="contact-holder">
 				<div class="row">
 					<div class="col-md-6 col-sm-12">
-			            <div class="googlemap-wrapper animated fadeInLeft">
+			            <div class="googlemap-wrapper ">
                             <div id="map_canvas" class="map-canvas"></div>
                         </div>
 					</div>
 					<div class="col-md-6 col-sm-12">
 						<div class="contact-form animated fadeInUp">
 							<h4>Send us a Message</h4>
-							<div class="row">
-								<fieldset class="col-md-6">
-									<input type="text" name="name" placeholder="Your name">
+							<form class="row" action="/" method="post">
+								<fieldset class="col-md-6" >
+									<input type="text" name="name" placeholder="Your name" required autofocus >
 								</fieldset>
 								<fieldset class="col-md-6">
-									<input type="email" name="email" placeholder="Your name">
+									<input type="email" name="email" placeholder="Your name" required>
 								</fieldset>
 								<fieldset class="col-md-12">
 									<input type="text" name="subject" placeholder="Subject">
@@ -278,10 +278,8 @@
 								<fieldset class="col-md-12">
 									<textarea name="message" id="message" cols="30" rows="10" placeholder="Describe your Project"></textarea>
 								</fieldset>
-								<fieldset class="col-md-12">
-									<a href="#" class="message-button">Submit Message</a>
-								</fieldset>
-							</div>
+								<button  class="pink-button" type="submit">Submit</button>
+							</form>
 						</div>
 					</div>
 				</div>

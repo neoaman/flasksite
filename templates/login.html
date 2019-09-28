@@ -27,12 +27,9 @@
 				<div class="col-md-8">
 					<nav id="navd" class="main-navigation hidden-xs hidden-sm">
 						<ul class="main-menu">
-							<li><a class="show-1 active homebutton" href="/">Home</a></li>
-							<li><a class="show-2 aboutbutton" href="/">About Me</a></li>
-							<li><a class="show-3 projectbutton" href="/">Projects</a></li>
-							<li><a class="show-4 blogbutton" href="/">Certificates</a></li>
-							<li><a class="show-5 contactbutton" href="/">Contact</a></li>
-							<li><a href="/dashboard" >Admin login</a></li>
+							<li><a  href="/">Home</a></li>
+
+							<li><a  href="/dashboard" >Admin login</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -40,9 +37,32 @@
 		</div>
 	</header>
 </body>
-{% block body %}
 
-{% endblock %}
+{% set fnam = 'img/' + params['login-image'] %}
+{% set loginicon = 'img/' + params['login-icon'] %}
+
+  <link href="{{url_for('static', filename = 'css/signin.css')}}" rel="stylesheet">
+  <body class="text-center" >
+    <form class="form-signin" action="/dashboard"  method="post">
+  <img class="animated fadeInLeft" src="{{ url_for( 'static', filename=fnam)}}" alt="" width="72" height="72">
+      <!-- class="mb-4"-->
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="uname" class="sr-only" >Email address</label>
+      <!-- sr-only -->
+  <input class="animated fadeInRight" type="email" id="uname" name="username"  size="35" placeholder="Email address" required autofocus ><br>
+  <label for="pass" class="sr-only" >Password</label>
+  <input class="animated fadeInRight" type="password" id="pass" name="password"  size="35" placeholder="Password" required>
+  <div class="checkbox mb-3" >
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button  class="pink-button animated fadeInUp" type="submit">Sign in</button>
+  <p class="mt-5 mb-3 text-muted">&copy; {{params['blog_name']}} 2017-2019</p>
+</form>
+</body>
+</html>
+
 <footer class="site-footer container text-center">
 		<div class="row">
 			<div class="col-md-12">
