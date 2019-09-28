@@ -52,17 +52,20 @@ def chartTest():
 
 @app.route('/dashboard',methods=['GET','POST'] )
 def dashboard():
+    contacts = pd.read_csv("D:\\STUDY PROCESS\\Flask\\flasksite\\static\\dataset\\contact.csv");
+    detail = list(contacts.values)
+
     if ('user' in session and session['user'] == params['admin_user']):
-        return render_template('dashboard.html', params=params)
+        return render_template('dashboard.html', params=params,detail=detail)
     if request.method == 'POST':
         passs = request.form.get('password')
         uname = request.form.get('username')
         if (uname == params['admin_user'] and passs == params['admin_pass']):
             session['user'] = uname
-            return render_template('dashboard.html', params=params)
+            return render_template('dashboard.html', params=params,detail=detail)
         else:
-            return render_template('login.html', params=params)
-    return render_template('login.html', params=params)
+            return render_template('login.html', params=params,detail=detail)
+    return render_template('login.html', params=params,detail=detail)
 
 @app.route("/logout")
 def logout():
