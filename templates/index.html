@@ -1,53 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-	<title>Neo</title>
-<!--
-Raleway Template 
-http://www.templatemo.com/preview/templatemo_421_raleway
--->
-
-	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}} ">
-
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}} ">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/simple-line-icons.css')}} ">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css')}} ">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo_style.css')}} ">
-</head>
-<body>
-
-	<header class="site-header container animated fadeInDown">
-		<div class="header-wrapper">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="site-branding">
-						<a href="#"><h1>Neo</h1></a>
-					</div>
-				</div>
-				<a href="#" class="toggle-nav hidden-md hidden-lg">
-					<i class="fa fa-bars"></i>
-				</a>
-				<div class="col-md-8">
-					<nav id="navd" class="main-navigation hidden-xs hidden-sm">
-						<ul class="main-menu">
-							<li><a class="show-1 active homebutton" href="#">Home</a></li>
-							<li><a class="show-2 aboutbutton" href="#">About Me</a></li>
-							<li><a class="show-3 projectbutton" href="#">Projects</a></li>
-							<li><a class="show-4 blogbutton" href="#">Certificates</a></li>
-							<li><a class="show-5 contactbutton" href="#">Contact</a></li>
-						</ul>
-					</nav>
-
-				</div>
-			</div>
-		</div>
-	</header>
-
-
-</body>
-
+{% extends "link.html" %}
+{% block body %}
 	<div id="menu-container">
 		<div id="menu-1" class="homepage home-section container">
 			<div class="home-intro text-center">
@@ -66,7 +18,7 @@ http://www.templatemo.com/preview/templatemo_421_raleway
 						<div class="project-title animated fadeInUp">
 							<h2>Latest Projects</h2>
 							<p>My recent Project was a <span class="blue">Basic Virtual Assistance</span><br><br>I have Created an Assistance which will help you to visualize your data from any csv file with in a minute and without writing the code, again as its a virtual assistance, it will greet you, say you the time if you ask, let you find some basic information from wikipedia, play your fevourite song. If you want to know more about the source code for this app, kindly visit my git-hub</p>
-							<a href="#" class="pink-button">Virtual Assistance Git</a>
+							<a href="https://github.com/neoaman/Virtual-Assistant.git" class="pink-button">Virtual Assistance Git</a>
 						</div>
 					</div>
 					<div class="project-home-holder col-md-6 col-sm-12">
@@ -117,7 +69,7 @@ http://www.templatemo.com/preview/templatemo_421_raleway
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 						<div class="inner-story animated fadeInRight text-center">
-							<h2>ABOUT US</h2>
+							<h2>My Achievements</h2>
 							<p>Cras placerat, est ac sollicitudin laoreet, ante enim egestas lorem, vel auctor nibh massa sit amet lacus. Cras mollis tellus id sollicitudin vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam gravida arcu</p>
 						</div>
 					</div>
@@ -143,6 +95,19 @@ http://www.templatemo.com/preview/templatemo_421_raleway
 								</figure>
 								<div class="offer-content text-center">
 									<h4>HAPPY WORKING WITH US</h4>
+									<p>Sed sagittis nunc vel tellus ultricies auctor. Class aptent taciti sociosqu ad litora torquent per conubia , per inceptos himenaeos. Integer eleifend tellu.</p>
+									<span class="offer-left"><i></i></span>
+									<span class="offer-right"><i></i></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="offer-item offer-2 animated fadeInRight">
+								<figure>
+									<img src="{{ url_for('static',filename='img/a2.jpg')}}" alt="">
+								</figure>
+								<div class="offer-content text-center">
+									<h4>OUR COMPANY BACKGROUND</h4>
 									<p>Sed sagittis nunc vel tellus ultricies auctor. Class aptent taciti sociosqu ad litora torquent per conubia , per inceptos himenaeos. Integer eleifend tellu.</p>
 									<span class="offer-left"><i></i></span>
 									<span class="offer-right"><i></i></span>
@@ -323,39 +288,4 @@ http://www.templatemo.com/preview/templatemo_421_raleway
 			</div>
 		</div>
 	</div>
-
-
-	<footer class="site-footer container text-center">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="main-footer">
-					<ul class="social">
-						<li><a href="#">Facebook</a></li>
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Instagram</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 copyright">
-				<p>Copyright &copy; 2084 <a href="#">Company Name</a></p>
-			</div>
-		</div>
-	</footer>
-
-	-->
-	<!-- templatemo 421 raleway -->
-	<span class="border-top"></span>
-	<span class="border-left"></span>
-	<span class="border-right"></span>
-	<span class="border-bottom"></span>
-	<span class="shape-1"></span>
-	<span class="shape-2"></span>
-
-	<script src="{{ url_for('static',filename='js/jquery.min.js')}}"></script>
-	<script src="{{ url_for('static',filename='js/templatemo_custom.js')}}"></script>
-
-</body>
-
-</html>
+{% endblock %}
