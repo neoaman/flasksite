@@ -8,7 +8,7 @@ import pandas as pd
 import json
 
 # 'mysql://username:password@localhost/db_name'
-with open("/home/Amanneo/neo/flasksite/config.json") as c:
+with open("/home/Amanneo/neo/config.json") as c:
     params = json.load(c)["params"]
 local_server = True
 app = Flask(__name__)
@@ -37,7 +37,7 @@ def home():
             cemail = request.form.get('email')
             csub = request.form.get('subject')
             cmes = request.form.get('message')
-            with open(path+"contact.csv", mode='a') as file_:
+            with open("/home/Amanneo/neo/contact.csv", mode='a') as file_:
                 file_.write("{},{},{},{}".format(cname, cemail,csub,cmes))
                 file_.write("\n")
 
