@@ -8,15 +8,15 @@ import pandas as pd
 import json
 
 # 'mysql://username:password@localhost/db_name'
-with open("home/Amanneo/neo/flasksite/config.json") as c:
+with open("/home/Amanneo/neo/flasksite/config.json") as c:
     params = json.load(c)["params"]
 local_server = True
 app = Flask(__name__)
 app.secret_key = 'super-secret-key'
 
-path = "home/Amanneo/neo/flasksite/static/dataset/"
-image = "home/Amanneo/neo/flasksite/static/img/"
-dataset = os.listdir("home/Amanneo/neo/flasksite/static/dataset")
+path = "/home/Amanneo/neo/flasksite/static/dataset/"
+image = "/home/Amanneo/neo/flasksite/static/img/"
+dataset = os.listdir("/home/Amanneo/neo/flasksite/static/dataset")
 
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://Amanneo:P@ssw0rd@Amanneo.mysql.pythonanywhere-services.com/Amanneo$neonature'
