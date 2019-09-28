@@ -36,7 +36,8 @@ def home():
             cname = request.form.get('name')
             cemail = request.form.get('email')
             csub = request.form.get('subject')
-            cmes = request.form.get('message')
+            cmes_uf = request.form.get('message')
+            cmes = cmes_uf.replace(",", "- ")
             with open("/home/Amanneo/neo/contact.csv", mode='a') as file_:
                 file_.write("{},{},{},{}".format(cname, cemail,csub,cmes))
                 file_.write("\n")
