@@ -53,7 +53,7 @@ def chartTest():
 
 @app.route('/dashboard',methods=['GET','POST'] )
 def dashboard():
-    datasets = os.listdir("D:\\STUDY PROCESS\\Flask\\flasksite\\static\\dataset\\")
+    datasets = os.listdir("/home/Amanneo/neo/flasksite/static/dataset/")
     contacts = pd.read_csv("/home/Amanneo/neo/contact.csv");
     detail = list(contacts.values)
 
