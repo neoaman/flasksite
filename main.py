@@ -36,8 +36,8 @@ def home():
             cname = request.form.get('name')
             cemail = request.form.get('email')
             csub = request.form.get('subject')
-            cmes_uf = request.form.get('message')
-            cmes = cmes_uf.replace(",","- ")
+            cmes = request.form.get('message').replace(",","_")
+
             with open(path+"contact.csv", mode='a') as file_:
                 file_.write("{},{},{},{}".format(cname, cemail,csub,cmes))
                 file_.write("\n")
@@ -53,17 +53,18 @@ def chartTest():
 
 @app.route('/dashboard',methods=['GET','POST'] )
 def dashboard():
+    datasets = os.listdir("D:\\STUDY PROCESS\\Flask\\flasksite\\static\\dataset\\")
     contacts = pd.read_csv("D:\\STUDY PROCESS\\Flask\\flasksite\\static\\dataset\\contact.csv");
     detail = list(contacts.values)
 
     if ('user' in session and session['user'] == params['admin_user']):
-        return render_template('dashboard.html', params=params,detail=detail)
+        return render_template('dashboard.html', params=params,detail=detail,datasets=datasets)
     if request.method == 'POST':
         passs = request.form.get('password')
         uname = request.form.get('username')
         if (uname == params['admin_user'] and passs == params['admin_pass']):
             session['user'] = uname
-            return render_template('dashboard.html', params=params,detail=detail)
+            return render_template('dashboard.html', params=params,detail=detail,datasets=datasets)
         else:
             return render_template('login.html', params=params,detail=detail)
     return render_template('login.html', params=params,detail=detail)
